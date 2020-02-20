@@ -8,7 +8,7 @@ basım=10
 modu=1
 
 def ekle():
-    dosya = open("veri/sinif.txt",mode="r",encoding="utf-8")
+    dosya = open("sinif.txt",mode="r",encoding="utf-8")
 
     if ogr==[]:
         for i in dosya.readlines():
@@ -20,11 +20,11 @@ def ekle():
 def mod():
     global modu,basım
     ogr=[]
-    dosya = open("veri/sinif.txt",mode="r",encoding="utf-8")
+    dosya = open("sinif.txt",mode="r",encoding="utf-8")
     for i in dosya.readlines():
         ogr.append(i)
-    dosyailk = open("veri/secim.txt",mode="r",encoding="utf-8")
-    secim = open("veri/secim.txt","w")
+    dosyailk = open("secim.txt",mode="r",encoding="utf-8")
+    secim = open("secim.txt","w")
     secim.writelines(ogr)
     secim.close()
 
@@ -38,7 +38,7 @@ def mod():
         yazi.config(text="Hiç Bir Öğrenci\nListeden Düşmez!\n Ama Seçim Sıfırlandı!")
     else:
         yazi.config(text="Her "+str(modu)+" Seçimde\n Bir Öğrenci\nListeden Düşmez!\n Ama Seçim Sıfırlandı!")
-    ayark = open("veri/ayar.txt","w",encoding="utf-8")
+    ayark = open("ayar.txt","w",encoding="utf-8")
     ayark.write(str(modu))   
     ayark.close()
     
@@ -64,14 +64,14 @@ def degistir():
         else:
             print ("Öğrenci silindi")
             ogr.remove(rast)
-    secim = open("veri/secim.txt","w")
+    secim = open("secim.txt","w")
     secim.writelines(ogr)
     secim.close()
         
-dosyailk = open("veri/secim.txt",mode="r",encoding="utf-8")
+dosyailk = open("secim.txt",mode="r",encoding="utf-8")
 for i in dosyailk.readlines():
     ogr.append(i)
-dosyaayar = open("veri/ayar.txt","r",encoding="utf-8")
+dosyaayar = open("ayar.txt","r",encoding="utf-8")
 ayar = dosyaayar.read(1)
 modu=int(ayar)
 pencere=Tk()
